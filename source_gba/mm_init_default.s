@@ -30,7 +30,7 @@ __mixbuffer:
 	.text
 	.thumb
 	.align 2
-
+	
 #define MM_SIZEOF_MODCH		40
 #define MM_SIZEOF_ACTCH		28
 #define MM_SIZEOF_MIXCH		24
@@ -59,7 +59,8 @@ mmInitDefault:
 	mul	r0, r6
 	ldr	r4,=mixlen
 	add	r0, r4
-	bl	malloc
+	mov	r1, #1
+	bl	calloc
 	
 	mov	r7, r0				// wavemem = beginning of buffer
 	add	r3, r0, r4			// split up buffer into addresses [r3,r4,r5]
